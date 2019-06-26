@@ -10,25 +10,25 @@ var animals = {
   monkey : {name:"Monkey", habitat:"Jungle", group:"Mammal", noise:"Oh Oh He He"},
   bee : {name:"Bee", habitat:"Garden", group:"Invertebrate", noise:"Buzz Buzz"},
   lion : {name:"Lion", habitat:"Jungle", group:"Mammal", noise:"Roar Roar"},
-}
+};
 
 // assigns this variable to the select box to be filled
-var animalBox = document.getElementById("1");
+var animalBox = document.getElementById("box");
 
 // adds each animal as an option in the select box
 for (var key in animals)
   {
-    var option = document.createElement("OPTION"),
-      value = document.createAttribute(animals[key].name)
-      txt = document.createTextNode(animals[key].name)
-    option.appendChild(txt);
-    animalBox.insertBefore(option, animalBox.lastChild);
+	var option = document.createElement("OPTION"),
+    value = document.createAttribute(animals[key].name),
+    txt = document.createTextNode(animals[key].name);
+  option.appendChild(txt);
+  animalBox.insertBefore(option, animalBox.lastChild);
     
   }
   
   function getAnimalDescription(){
     // assigns the option the user selects to this variable
-      var selectedAnimal = document.getElementById("1").value;
+      var selectedAnimal = document.getElementById("box").value;
       
       for (key in animals)
       {
