@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Connect to Database</title>
+</head>
+<body>
+
+<div id="myData"></div>
+    <script>
+    var db = openDatabase('DatabaseForAnimalsFinal', '1.0', 'database of JSON data of animals', 2 * 1024 * 1024);
+    var dataDiv = document.getElementById('myData');
+    
+    tx.executeSql('SELECT * FROM Animals', [], function (tx, results) {
+    	  for (i = 0; i < len; i++) {
+    		  var animalDescription = results.rows.item(i);
+    		  dataDiv.innerHTML ='ID:' + animalDescription.id + ', name: ' + animalDescription.name +
+    		       ' habitat: ' + animalDescription.habitat + ' noise: ' + animalDescription.noise;
+    	  }
+    	});
+    
+    /*var connection = new ActiveXObject("ADODB.Connection") ;
+
+    var connectionstring="Data Source=c:\DatabaseForAnimalsFinal.db;Version=3;";
+
+    connection.Open(connectionstring);
+    var rs = new ActiveXObject("ADODB.Recordset");
+
+    rs.Open("SELECT * FROM Animals", connection);
+    rs.MoveFirst
+    while(!rs.eof)
+    {
+       document.write(rs.fields(1));
+       rs.movenext;
+    }
+
+    rs.close;
+    connection.close;*/
+    
+        /*fetch('CAanimals.html')
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                appendData(data);
+            })
+            .catch(function (err) {
+                console.log('error: ' + err);
+            });
+
+        function appendData(data) {
+            var mainContainer = document.getElementById("myData");
+            for (var i = 0; i < data.length; i++) {
+                var div = document.createElement("div");
+                div.innerHTML = 'ID: ' + data[i].id + '<br>' + 'Name: ' + data[i].name + '<br>'
+                + 'Habitat: ' + data[i].habitat + '<br>' + 'Group: ' + data[i].group + '<br>' 
+                + 'Noise: ' + data[i].noise;
+                mainContainer.appendChild(div);*/
+            }
+        }
+    </script>
+
+</body>
+</html>
